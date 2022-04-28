@@ -1,5 +1,5 @@
 {
-  "name": "@microbs.io/microbs-plugin-minikube",
+  "name": "@microbs.io/plugin-minikube",
   "version": "0.1.0-alpha",
   "description": "microbs plugin - minikube",
   "license": "Apache-2.0",
