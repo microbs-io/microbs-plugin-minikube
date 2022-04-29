@@ -10,11 +10,10 @@
     "url": "https://github.com/microbs-io/microbs-plugin-minikube.git"
   },
   "keywords": [
-    "k8s",
-    "kubernetes",
     "microbs",
-    "minikube",
-    "plugin"
+    "plugin",
+    "kubernetes",
+    "minikube"
   ],
   "scripts": {
     "test": "jest"

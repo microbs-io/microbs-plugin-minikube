@@ -14,16 +14,6 @@ const VALID_PLUGIN_TYPES = [
 
 describe('microbs plugin standards', () => {
 
-  test('plugin.json exists', () => {
-    const json = utils.loadJson(path.join(process.cwd(), 'plugin.json'))
-    expect(json).toBeTruthy()
-  })
-
-  test('plugin.json declares a valid "type"', () => {
-    const json = utils.loadJson(path.join(process.cwd(), 'plugin.json'))
-    expect(VALID_PLUGIN_TYPES.includes(json.type)).toBe(true)
-  })
-
   test('package.json exists', () => {
     const json = utils.loadJson(path.join(process.cwd(), 'package.json'))
     expect(json).toBeTruthy()
@@ -53,6 +43,34 @@ describe('microbs plugin standards', () => {
     const json = utils.loadJson(path.join(process.cwd(), 'package.json'))
     const name = json.name.split('@microbs.io/')[1]
     expect(json.repository.url).toBe(`https://github.com/microbs-io/microbs-${name}.git`)
+  })
+  
+  test('package.json declares "microbs" in "keywords"', () => {
+    const json = utils.loadJson(path.join(process.cwd(), 'package.json'))
+    expect(json.keywords.includes('microbs')).toBe(true)
+  })
+  
+  test('package.json declares "plugin" in "keywords"', () => {
+    const json = utils.loadJson(path.join(process.cwd(), 'package.json'))
+    expect(json.keywords.includes('plugin')).toBe(true)
+  })
+  
+  test('package.json declares a valid plugin type in "keywords" ', () => {
+    const json = utils.loadJson(path.join(process.cwd(), 'package.json'))
+    var valid = false
+    for (var i in VALID_PLUGIN_TYPES) {
+      const type = VALID_PLUGIN_TYPES[i]
+      if (json.keywords.includes(type)) {
+        // Exactly one valid plugin type must be declared "keywords"
+        if (!valid) {
+          valid = true
+        } else {
+          valid = false
+          break
+        }
+      }
+    }
+    expect(valid).toBe(true)
   })
 
   test('package-lock.json exists', () => {
