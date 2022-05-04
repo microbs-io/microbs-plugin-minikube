@@ -1,6 +1,6 @@
 {
   "name": "@microbs.io/plugin-minikube",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "description": "microbs plugin - minikube",
   "license": "Apache-2.0",
   "url": "https://microbs.io/docs/plugins/kubernetes/minikube/",
@@ -26,9 +26,11 @@
     "node": ">=14.16.1"
   },
   "dependencies": {
-    "@microbs.io/core": "^0.1.0-alpha",
     "hasbin": "^1.2.3",
     "semver": "^7.3.5"
+  },
+  "peerDependencies": {
+    "@microbs.io/core": "^0.1.8-alpha"
   },
   "devDependencies": {
     "jest": "^26.6.3"
