@@ -3,7 +3,7 @@
  */
 
 // Third-party packages
-const hasbin = require('hasbin')
+const commandExists = require('command-exists')
 const semver = require('semver')
 
 // Main packages
@@ -13,7 +13,7 @@ const { logger, utils } = require('@microbs.io/core')
  * Validate minikube installation
  */
 const validateMinikubeInstallation = () => {
-  if(hasbin.sync('minikube'))
+  if(commandExistsSync('minikube'))
     return {
       success: true,
       message: 'minikube is installed'
