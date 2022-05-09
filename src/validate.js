@@ -13,7 +13,7 @@ const { logger, utils } = require('@microbs.io/core')
  * Validate minikube installation
  */
 const validateMinikubeInstallation = () => {
-  if(commandExistsSync('minikube'))
+  if(commandExists.sync('minikube'))
     return {
       success: true,
       message: 'minikube is installed'
