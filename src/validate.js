@@ -20,7 +20,7 @@ const validateMinikubeInstallation = () => {
     }]
   else
     return [{
-      success: true,
+      success: false,
       message: 'minikube is not installed'
     }]
 }
