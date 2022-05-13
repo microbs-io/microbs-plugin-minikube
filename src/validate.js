@@ -62,7 +62,11 @@ const validateMinikubeVersion = () => {
 
 module.exports = async () => {
   const results = []
-  results.push(validateMinikubeInstallation())
-  results.push(validateMinikubeVersion())
+  validateMinikubeInstallation().forEach(
+    (result) => results.push(result)
+  )
+  validateMinikubeVersion().forEach(
+    (result) => results.push(result)
+  )
   return results
 }
